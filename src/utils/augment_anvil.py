@@ -17,7 +17,6 @@ def augment_fields(fields, sample_form):
         options = field.get("options", None)
         options_values = []
         if options:
-            # Assuming options is a list of dictionaries with 'key' and 'value'
             options_values = [option.get("value") for option in options if "value" in option]
         else:
             options_values = None
