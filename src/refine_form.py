@@ -14,7 +14,8 @@ async def refine_form_background(company_id: str, refine_task: str):
     with open(file_path, "r") as json_file:
         generated_form = json.load(json_file)
     updated_form = refine_form(refine_task, generated_form)
-
+    with open(file_path, "w") as json_file:
+        json.dump(updated_form, json_file, indent=2)
     await generate_form(company_id, updated_form)
 
 
