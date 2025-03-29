@@ -139,12 +139,12 @@ async def validate_generated_fields(company_md: str, generated_fields: dict,
 
 async def fetch_company_data(company_id: str):
     """Fetch company data from Retool"""
-    url = "https://tatch.retool.com/url/company-memory"
+    url = "https://tatch.retool.com/url/memory-interview"
     headers = {
         'Content-Type': 'application/json',
         'X-Workflow-Api-Key': os.getenv('X-Workflow-Api-Key-COMP-MEMORY')
     }
-    payload = {"company_id": company_id}
+    payload = {"company_id": company_id, "coi_acord_25": False}
 
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
